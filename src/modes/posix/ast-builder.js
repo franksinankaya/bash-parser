@@ -168,6 +168,14 @@ module.exports = options => {
 		return node;
 	};
 
+	builder.forClause2 = (clause, doGroup, locStart) => {
+		const node = {type: 'For', clause, do: doGroup};
+		if (options.insertLOC) {
+			node.loc = setLocEnd(setLocStart({}, locStart), doGroup.loc);
+		}
+		return node;
+	};
+
 	builder.forClauseDefault = (name, doGroup, locStart) => {
 		const node = {type: 'For', name, do: doGroup};
 		if (options.insertLOC) {

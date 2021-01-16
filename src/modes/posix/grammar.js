@@ -134,6 +134,10 @@ module.exports = {
 				'For name in wordlist separator do_group',
 				'$$ = yy.forClause($name, $wordlist, $do_group, $For.loc);'
 				/* todo: here allow only ';' separator */
+			],
+			[
+				'For compound_list do_group',
+				'$$ = yy.forClause2($2, $3, $For.loc);'
 			]
 		],
 		name: [
