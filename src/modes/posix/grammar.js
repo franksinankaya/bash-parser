@@ -138,6 +138,10 @@ module.exports = {
 			[
 				'For compound_list do_group',
 				'$$ = yy.forClause2($2, $3, $For.loc);'
+			],
+			[
+				'For OPEN_PAREN OPEN_PAREN SEPARATOR_OP CLOSE_PAREN CLOSE_PAREN linebreak do_group',
+				'$$ = yy.forClause3($2, $do_group, $For.loc);'
 			]
 		],
 		name: [
