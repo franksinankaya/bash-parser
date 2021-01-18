@@ -192,6 +192,18 @@ module.exports = options => {
 		return node;
 	};
 
+	builder.AssignArray = (list, doGroup, locStart) => {
+		let node = {type: 'Array', items: doGroup.commands[0].suffix};
+		node.items.unshift(doGroup.commands[0].name)
+		node.text = list[0].text
+		list.push(node)
+		if (options.insertLOC) {
+			node.loc = list[0].loc
+		}
+		list.shift()
+		return list;
+	};
+
 	builder.functionDefinition = (name, body) => {
 		const node = {type: 'Function', name};
 

@@ -336,6 +336,10 @@ module.exports = {
 		],
 		cmd_prefix: [
 			[
+				'cmd_prefix OPEN_PAREN compound_list CLOSE_PAREN',
+				'$$ = yy.AssignArray($1, $compound_list);'
+			],
+			[
 				'io_redirect',
 				'$$ = yy.prefix($io_redirect);'
 			],
